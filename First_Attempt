@@ -1,0 +1,25 @@
+course = "Python Programming"
+print(len(course))
+print(course[0])
+print(course[-1])
+print(course[0:3])
+
+print(25 * 68 + 13 / 28)
+
+quilt_width = 8
+quilt_length = 12
+
+# number of squares needed for the quilt
+print(quilt_width * quilt_length)
+
+# we had too many
+quilt_length = 8
+
+print(quilt_width * quilt_length)
+student_account = 1000
+announce1 = "We have"
+announce2 = "students"
+print(announce1, student_account, announce2)
+
+number_of_students = 1000
+print("We have a total of", number_of_students, "students")
