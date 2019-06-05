@@ -1,0 +1,96 @@
+print("Single Parameters")  # Single Parameters
+
+
+def mult_two_add_three(number):
+    print(number*2+3)
+
+
+mult_two_add_three(1)
+mult_two_add_three(5)
+mult_two_add_three(-1)
+mult_two_add_three(0)
+
+print("Multiple Parameters")  # Multiple Parameters
+
+
+def mult_x_add_y(number, x, y):
+    print(number * x + y)
+
+
+mult_x_add_y(5, 2, 3)
+mult_x_add_y(1, 3, 1)
+
+print("Keyword Arguments")  # Keyword Arguments
+
+
+# Def create_spreadsheets():
+def create_spreadsheets(title, row_count=1000):
+    print("Create a spreadsheet called " + title + " with " + str(row_count) + " rows")
+
+
+create_spreadsheets("Downloads")
+create_spreadsheets("Applications", 10)
+
+print("Returns")  # Returns
+
+
+def calculate_age(current_year, birth_year):
+    age = current_year - birth_year
+    return age
+
+
+my_age = calculate_age(2019, 1993)
+dads_age = calculate_age(2019, 1961)
+moms_age = calculate_age(2019, 1965)
+bros_age = calculate_age(2019, 1996)
+
+print("I am " + str(my_age) + " years old, my dad is " + str(dads_age) + " years old, my mom is " +
+      str(moms_age) + " years old and my bro is " + str(bros_age) + " years old")
+
+
+print("Multiple Return Values")  # Multiple Return Values
+
+
+def get_boundaries(target, margin):
+    low_limit = target - margin
+    high_limit = margin + target
+    return low_limit, high_limit
+
+
+low, high = get_boundaries(100, 20)
+print(low, high)
+
+
+print("Scope")  # Scope
+
+
+current_year = 2019
+
+
+def calculate_age(birth_year):
+    age = current_year - birth_year
+    return age
+
+
+print("I am " + str(calculate_age(1993)) + " years old, my dad is " + str(calculate_age(1961)) + " years old, my mom is " +
+      str(calculate_age(1965)) + " years old and my bro is " + str(calculate_age(1996)) + " years old")
+
+
+print("FINALE")  # Grand Finale
+
+
+def repito(stuff, num_repeats=5):
+    return stuff * num_repeats
+
+
+lyrics = repito("Ese botecito ", 3) + "Si no se mueve se oxida. "
+song = repito(lyrics)
+
+print(song)
+
+
+def quote(x):
+    print("There is no greater agony than bearing " + x + " inside you.")
+
+
+quote("an untold story")
