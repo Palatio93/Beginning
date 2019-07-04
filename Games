@@ -1,0 +1,146 @@
+import random
+
+money = 100
+# num = random.randint(1, 10)
+# Write your game of chance functions here
+
+
+def flip_coin(guess, bet):
+    if (bet < 0):   # Checking the bet is valid
+        print("Please bet above 0")
+        return 0
+    else:  # We have game
+        print("------------------------")
+        print("C'MON COINS")
+        if (money >= bet) and (money > 0):  # Checking if player has enough credit to play
+
+            # Starts the game
+            flipped = random.randint(1, 2)
+            print("The bet is: " + str(bet) + " coins.")  # Announcing the bet
+            print("You called " + guess)  # Announcing the guess from player
+
+            # Announcing the result
+            if flipped == 1:
+                print("The coin fell on Heads")
+            else:
+                print("The coin fell on Tails")
+
+            # Determining winner or loser
+            if (flipped == 1 and guess == "Heads") or (flipped == 2 and guess == "Tails"):
+                print("You won: " + str(bet) + " coins. Congrats!")
+                return bet
+            else:
+                print("You lost: " + str(bet) + " coins. Better luck next time")
+                return (-bet)
+        else:
+            print("Dog, you don't have enough coins to play that, go buy some more.")
+            return 0
+
+
+def dices(guess, bet):
+    if (bet < 0):   # Checking the bet is valid
+        print("Please bet above 0")
+        return 0
+    else:  # We have game
+        print("------------------------")
+        print("C'MON DICES")
+        if (money >= bet) and (money > 0):  # Checking if player has enough credit to play
+            print("The bet is: " + str(bet) + " coins.")  # Announcing the bet
+
+            # Starts the game
+            dice1 = random.randint(1, 6)
+            dice2 = random.randint(1, 6)
+            result = dice1 + dice2
+
+            # Announcing the result and the guess from player
+            print("Both dices summ " + str(result) + " and you called " + guess)
+
+            # Determining winner or loser
+            if (result % 2 == 0 and guess == "Even") or (result % 2 != 0 and guess == "Odd"):
+                print("You won: " + str(bet) + " coins.")
+                return bet
+            else:
+                print("You lost: " + str(bet) + " coins.")
+                return (-bet)
+        else:
+            print("Dog, you don't have enough coins to play that, go buy some more.")
+            return 0
+
+
+def cards(bet):
+    if (bet < 0):   # Checking the bet is valid
+        print("Please bet above 0")
+        return 0
+    else:  # We have game
+        print("------------------------")
+        print("HIGHER CARD WINS")
+        if (money >= bet) and (money > 0):  # Checking if player has enough credit to play
+            print("Your bet is: " + str(bet) + " coins.")  # Announcing the bet
+
+            # Starts the game drawing two cards with numbers between 1 and 13
+            card1 = random.randint(1, 13)  # Player
+            card2 = random.randint(1, 13)  # House
+
+            # Announcing the results
+            print("You picked " + str(card1) + ". And i picked " + str(card2) + ". Therefore ...")
+
+            # Determining winner, loser or a tie
+            if card1 == card2:
+                print("We have a tie gents")
+                return 0
+            elif card1 > card2:
+                print("Player wins: " + str(bet) + " coins.")
+                return bet
+            else:
+                print("Player loses: " + str(bet) + " coins.")
+                return (-bet)
+        else:
+            print("Dog, you don't have enough coins to play that, go buy some more.")
+            return 0
+
+
+def roulette(guess, bet):
+    if (bet < 0):   # Checking the bet is valid
+        print("Please bet above 0")
+        return 0
+    else:  # We have game
+        print("------------------------")
+        print("LET'S GO ROULETTE")
+        if (money >= bet) and (money > 0):  # Checking if player has enough credit to play
+
+            # Starts the game, roulette has 36 numbers plus 00 which will be represented with 37
+            number = random.randint(0, 37)
+
+            # Announcing the result and the guess from player
+            print("And the number is: " + str(number) + ". And you called " + guess)
+
+            # Determining winner or loser
+            if (number % 2 == 0 and guess == "Even") or (number % 2 != 0 and guess == "Odd"):
+                print("You won: " + str(bet) + " coins.")
+                return bet
+            else:
+                print("You lost: " + str(bet) + " coins.")
+                return (-bet)
+        else:
+            print("Dog, you don't have enough coins to play that, go buy some more.")
+            return 0
+
+# Call your game of chance functions here
+
+
+money += flip_coin("Heads", 20)
+print("Your current balance is: " + str(money) + " coins.")
+money += flip_coin("Tails", 80)
+print("Your current balance is: " + str(money) + " coins.")
+money += dices("Even", 15)
+print("Your current balance is: " + str(money) + " coins.")
+money += dices("Odd", 15)
+print("Your current balance is: " + str(money) + " coins.")
+money += cards(10)
+print("Your current balance is: " + str(money) + " coins.")
+money += cards(90)
+print("Your current balance is: " + str(money) + " coins.")
+money += roulette("Odd", 15)
+print("Your current balance is: " + str(money) + " coins.")
+money += roulette("Even", 27)
+print("Your current balance is: " + str(money) + " coins.")
